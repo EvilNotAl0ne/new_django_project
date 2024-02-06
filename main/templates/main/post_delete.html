@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+    <p>Автор - {{post.author}}</p>
+    <p>Заголовок - {{post.title}}</p>
+    <p>Текст поста - {{post.text}}</p>
+    <p>Дата создания - {{post.created_date}}</p>
+    <hr>
+
+
+    <h1>Удалить пост?</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <button type="submit" name="delete">Удалить</button>
+        <button type="submit" name="cancel">Отменить</button>
+    </form>
+{% endblock content %}

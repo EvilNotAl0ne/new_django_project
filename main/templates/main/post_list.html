@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+
+    {% block content %}
+        <table id='posts' border=1>
+            <th>Автор</th>
+            <th>Заголовок</th>
+            <th>Текст поста</th>
+            <th>Дата создания</th>
+
+        {% for post in posts %}
+            <tr>
+                <td align="center"><a href="{% url "users:user_info" pk=post.author.id %}">{{post.author}}</a></td>
+                <td align="center"><a href="{% url 'main:post_detail' pk=post.id %}">{{post.title}}</a></td>
+                <td align="center">{{post.text}}</td> 
+                <td align="center">{{post.created_date}}</td>
+            </tr>
+        {% endfor %}
+    {% endblock content %}

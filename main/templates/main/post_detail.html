@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+{% load thumbnail %}
+{% block head %}
+<h1>Информация о посте</h1>
+{% endblock head %}
+
+{% block content %}
+        <p>Автор - {{post.author}}</p>
+        <p>Заголовок - {{post.title}}</p>
+        <p>Текст поста - {{post.text}}</p>
+        <p>Дата создания - {{post.created_date}}</p>
+
+        <hr>
+        {% if request.user == post.author %}
+                <a href="{% url "main:post_update" pk=post.id %}">Редактировать</a><br><br>
+                <a href="{% url "main:post_delete" pk=post.id %}">Удалить</a>
+        {% endif %}
+        {% comment %} {% thumbnail post.image "300x300" as im %}
+        <img src="{{im.url}}" width="{{im.width}}" height="{{im.height}}">
+        {% endthumbnail %} {% endcomment %}
+        
+{% endblock content %}

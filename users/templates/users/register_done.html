@@ -1,0 +1,10 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+<h1>аккаунт успешно создан</h1>
+<p>Логин - {{new_user.username}}<P>
+<p>Имя - {{new_user.first_name}}</P/>
+<p>Элю почта - {{new_user.email}}</P>
+
+<p>Время регистрации - {{new_user.date_joined}}</P>
+{% endblock content %}
