@@ -1,4 +1,4 @@
-{% extends "users/base.html" %}
+{% comment %} {% extends "users/base.html" %}
 
 {% block content %}
 <h1>Авторизация пользователя</h1>
@@ -8,4 +8,28 @@
     {% csrf_token %}
     {{form.as_p}}
     <p><input type="submit" value="Войти"></p>
-{% endblock content %}
+{% endblock content %} {% endcomment %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+<div class="login">
+    <div class="form">
+        <form class="registration-form">
+            <input type="text" placeholder="name" />
+            <input type="password" placeholder="password" />
+            <input type="text" placeholder="email" />
+            <button>Create</button>
+            <p><a href="#">Log In</a></p>
+        </form>
+        <form class="login-form" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            {% comment %} <input type="text" placeholder="username" />
+            <input type="password" placeholder="password" /> {% endcomment %}
+            <button>Войти</button>
+            <p><a href="#">Регистрация</a></p>
+        </form>
+    </div>
+</div>
